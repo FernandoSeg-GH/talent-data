@@ -19,7 +19,8 @@ export default function Home() {
   const [lapapaD, setLapapaD] = useState(0);
   const [lapapaRP, setLapapaRP] = useState(0);
 
-
+  const [classifications, setClassifications] = useState({ AE: "", D: "", RP: "" });
+  
   const handleAnswerChange = (questionId: number, value: string) => {
     setAnswers({ ...answers, [questionId]: value });
 
@@ -77,31 +78,13 @@ export default function Home() {
   // ############ LA PAPA ############
   const damelapapa = () => {
     const points = calculatePoints();
-    const classifications = calculateClassifications(
-      points.AE,
-      points.D,
-      points.RP
-    );
+    const calculatedClassifications = calculateClassifications(points.AE, points.D, points.RP);
     setLapapaAE(points.AE);
     setLapapaD(points.D);
     setLapapaRP(points.RP);
-  };
-
-  // ############ HANDLE CALCULATE SAFE ############
-  const handleCalculatePointsSAFE = () => {
-    if (Object.keys(answers).length !== dbQuestions.length) {
-      alert("You must answer all questions in order to calculate the results.");
-      return;
-    }
-
-    const points = calculatePoints();
-
-    const message = `Your stress levels scores are:
-    AE: ${points.AE}
-    D: ${points.D}
-    RP: ${points.RP}
-    `;
-    setPointsModal(message);
+    setClassifications(calculatedClassifications);
+    console.log("Lapapa:", lapapaAE, lapapaD, lapapaRP);
+    console.log("Classifications:", classifications);
   };
 
   // ############ RANDOMIZE ANSWERS ############
@@ -182,40 +165,6 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="flex justify-between mt-10 -l-20">
-                    {/* <button
-                      className="btn btn-ghost"
-                      onClick={() => randomizeAnswers()}
-                    >
-                      Random
-                    </button> */}
-                    {/* {Object.keys(answers).length > 0 && (
-                      <>
-                        <button
-                          className="btn btn-primary"
-                          onClick={handleCalculatePointsSAFE}
-                        >
-                          See results
-                        </button>
-                        <input
-                          type="checkbox"
-                          id="my-modal-4"
-                          className="modal-toggle"
-                        />
-                        <label
-                          htmlFor="my-modal-4"
-                          className="modal cursor-pointer"
-                        >
-                          <div className="modal-box relative">
-                            <h3 className="text-lg font-bold">
-                              These are your results
-                            </h3>
-                            <div className="py-4">
-                              {pointsModal && <p>{pointsModal}</p>}
-                            </div>
-                          </div>
-                        </label>
-                      </>
-                    )} */}
                   </div>
                 </>
               }
@@ -231,22 +180,17 @@ export default function Home() {
 
           {allQuestionsAnswered && (
             <div className="w-full flex flex-col justify-center mt-6">
-              {/* <button
-                onClick={damelapapa}
-                className="btn btn-outline btn-primary w-[200px] my-10 mx-auto"
-              >
-                Dame la papa
-              </button> */}
-
               <AnalyticsScreen
                 lapapaAE={lapapaAE}
                 lapapaD={lapapaD}
                 lapapaRP={lapapaRP}
+                classifications={classifications}
               />
-
               <ResultadosDropdown_ENG points={calculatePoints()} />
+              <button onClick={() => damelapapa()} className="btn btn-primary">dame la papa</button>
             </div>
           )}
+
           <div className='mt-6'>
             <Screen
               title="Disclaimer:"

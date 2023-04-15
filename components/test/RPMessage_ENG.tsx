@@ -6,7 +6,7 @@ type Props = {
 };
 
 const RPMessage = ({ points }: Props) => {
-  if (points >= 0 && points <= 18) {
+  if (points >= 0 && points <= 33) {
     return (
       <Screen 
         title="Work Productivity: LOW"
@@ -18,7 +18,7 @@ const RPMessage = ({ points }: Props) => {
         }
       />
     );
-  } else if (points >= 19 && points <= 26) {
+  } else if (points >= 34 && points <= 39) {
     return (
       <Screen 
         title="Work Productivity: MEDIUM"

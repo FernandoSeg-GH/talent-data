@@ -6,7 +6,7 @@ type Props = {
 };
 
 const DMessage = ({ points }: Props) => {
-  if (points >= 0 && points <= 18) {
+  if (points >= 0 && points <= 5) {
     return (
       <Screen
         title="Interpersonal Distance: LOW"
@@ -18,7 +18,7 @@ const DMessage = ({ points }: Props) => {
         }
       />
     );
-  } else if (points >= 19 && points <= 26) {
+  } else if (points >= 6 && points <= 9) {
     return (
       <Screen 
         title="Interpersonal Distance: MEDIUM"

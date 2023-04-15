@@ -10,25 +10,25 @@ type Props = {
 export function ResultadosDropdown_ENG({ points }: Props) {
   return (
     <div>
+      <br />
+      {points.AE !== null && points.AE !== undefined && (
+        <>
+          <AEMessage_ENG points={points.AE} />
           <br />
-          {points.AE && (
-            <>
-              <AEMessage_ENG points={points.AE} />
-              <br />
-            </>
-          )}
-          {points.D && (
-            <>
-              <DMessage_ENG points={points.D} />
-              <br />
-            </>
-          )}
-          {points.RP && (
-            <>
-              <RPMessage_ENG points={points.RP} />
-              <br />
-            </>
-          )}
-        </div>
+        </>
+      )}
+      {points.D !== null && points.D !== undefined && (
+        <>
+          <DMessage_ENG points={points.D} />
+          <br />
+        </>
+      )}
+      {points.RP !== null && points.RP !== undefined && (
+        <>
+          <RPMessage_ENG points={points.RP} />
+          <br />
+        </>
+      )}
+    </div>
   );
 }

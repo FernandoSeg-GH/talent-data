@@ -76,7 +76,7 @@ export default function Questions_ENG({
         onAnswerChange={handleAnswerChange}
       />
       <div className="mt-6 flex items-center justify-between w-full">
-        <button
+        {!allQuestionsAnswered &&  <button
           disabled={currentQuestionIndex === 0}
           onClick={handlePrevClick}
           className={`bg-orange-400 text-gray-200 px-4 py-1 rounded-lg ${
@@ -84,16 +84,16 @@ export default function Questions_ENG({
           }`}
         >
           Prev
-        </button>
-        {currentQuestionIndex === questions.length - 1 && answers[questions[currentQuestionIndex].id] && (
+        </button>}
+        {allQuestionsAnswered && currentQuestionIndex === questions.length - 1 && answers[questions[currentQuestionIndex].id] && (
           <button
             onClick={() => setIsComplete(true)}
-            className="bg-green-500 text-white px-4 py-1 rounded-lg"
+            className="bg-green-500 text-white px-4 mx-auto py-1 rounded-lg cursor-default"
           >
             Done! See the answers below
           </button>
         )}
-        {currentQuestionIndex !== questions.length - 1 && (
+        {!allQuestionsAnswered && currentQuestionIndex !== questions.length - 1 && (
           <button
             disabled={!answers[questions[currentQuestionIndex].id]}
             onClick={handleClickNext}

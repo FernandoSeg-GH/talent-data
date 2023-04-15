@@ -54,8 +54,16 @@
     "text": "I am worried that this job is emotionally hardening me.",
     "category": "D"
   },
-  { "id": 12, "text": "I feel very energetic at my job.", "category": "RP" },
-  { "id": 13, "text": "I feel frustrated with my work.", "category": "AE" },
+  { 
+    "id": 12, 
+    "text": "I feel very energetic at my job.", 
+    "category": "RP" 
+  },
+  { 
+    "id": 13, 
+    "text": "I feel frustrated with my work.", 
+    "category": "AE" 
+  },
   {
     "id": 14,
     "text": "I feel like I spend too much time at my job.",

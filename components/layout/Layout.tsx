@@ -40,7 +40,7 @@ function Layout({ children, stateVariabel, questions, user }: Props) {
         {/* <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} session={session}/> */}
         <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme}/>
         {children}
-        <Footer />
+        {/* <Footer /> */}
     </main>
     </>
   )
