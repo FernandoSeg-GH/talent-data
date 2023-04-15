@@ -14,13 +14,10 @@ const AEMessage = ({ points }: Props) => {
           <div className="text-justify ">
             <h2 className="font-bold">Emotional Exhaustion: LOW</h2>
             <p className="my-4">
-              This subscale represents the experience of feeling exhausted,
-              overwhelmed, emotionally "burnt out" by job demands. It implies a
-              loss of energy, wear and tear, and fatigue.{" "}
+              This subscale represents the experience of feeling exhausted, overwhelmed, emotionally "burnt out" by job demands. It implies a loss of energy, wear and tear, and fatigue.{" "}
             </p>
             <p>
-              Your result is LOW. This means that there have been no significant
-              indicators for Emotional Exhaustion.
+              Your result is LOW. This means that there have been no significant indicators for Emotional Exhaustion.
             </p>
           </div>
         }
@@ -33,16 +30,10 @@ const AEMessage = ({ points }: Props) => {
         body={
           <div className="text-justify">
             <p className="my-4">
-              This subscale represents the experience of feeling exhausted,
-              overwhelmed, emotionally "burnt out" by job demands. It implies a
-              loss of energy, wear and tear, and fatigue.{" "}
+              This subscale represents the experience of feeling exhausted, overwhelmed, emotionally "burnt out" by job demands. It implies a loss of energy, wear and tear, and fatigue.{" "}
             </p>
             <p>
-              Your result is MEDIUM. This implies that there are no significant
-              indicators for Emotional Exhaustion. However, it has not been low
-              either, so it is important to prevent its negative evolution in
-              the future. It is suggested to monitor your levels of energy and
-              fatigue to stay motivated and achieve professional success.
+              Your result is MEDIUM. This implies that there are no significant indicators for Emotional Exhaustion. However, it has not been low either, so it is important to prevent its negative evolution in the future. It is suggested to monitor your levels of energy and fatigue to stay motivated and achieve professional success.
             </p>
           </div>
         }
@@ -55,16 +46,10 @@ const AEMessage = ({ points }: Props) => {
         body={
           <div className="text-justify">
             <p className="my-4">
-              This subscale represents the experience of feeling exhausted,
-              overwhelmed, emotionally "burnt out" by job demands. It implies a
-              loss of energy, wear and tear, and fatigue.
+              This subscale represents the experience of feeling exhausted, overwhelmed, emotionally "burnt out" by job demands. It implies a loss of energy, wear and tear, and fatigue.
             </p>
             <p>
-              Your result is HIGH. This indicates that you may have symptoms
-              compatible with Emotional Exhaustion. The feeling of being
-              emotionally burnt out could affect your professional capacity. It
-              would be necessary to take preventive measures to avoid it
-              affecting your work and personal life.
+              Your result is HIGH. This indicates that you may have symptoms compatible with Emotional Exhaustion. The feeling of being emotionally burnt out could affect your professional capacity. It would be necessary to take preventive measures to avoid it affecting your work and personal life.
             </p>
           </div>
         }

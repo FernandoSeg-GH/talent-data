@@ -13,7 +13,7 @@ const RPMessage = ({ points }: Props) => {
         body={
           <div className="text-justify">
             <p className="my-4">The Work Productivity subscale evaluates feelings of self-efficacy and productivity in the workplace. It describes feelings of competence and perception of factors for work success.</p>
-            <p>Your result is LOW. This indicates that there are no negative indicators in this area. This covers the possibility that you may not be perceiving that you are self-realizing in the workplace. In severe situations, you may even feel like you are failing professionally. Identifying and acknowledging these feelings could allow us to take the initiative to seek tools that enhance our development of skills. Some of these tools may be: seeking career guidance, analyzing the congruence between our vocation and current work, planning objectives, and talking to industry leaders.</p>
+            <p>Your result is LOW. This covers the possibility that you may not be self-realizing in the workplace. In severe situations, you may even feel like you are failing professionally. Identifying and acknowledging these feelings could allow us to take the initiative to seek tools that enhance our development of skills. Some of these tools may be: seeking career guidance, analyzing the congruence between our vocation and current work, planning objectives, and talking to industry leaders.</p>
           </div>
         }
       />
