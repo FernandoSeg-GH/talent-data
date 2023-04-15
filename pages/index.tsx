@@ -127,7 +127,7 @@ export default function Home() {
           <div>
             <Screen
               title="Welcome!"
-              body={`This is an app that will help you to know your stress levels in the workplace. The results of this questionnaire are, anonymous and in no case accessible to other people. The durationo of this test is between 10 to 15 minutes.`}
+              body={`This is an app that will help you to know your stress levels in the workplace. The results of this questionnaire are, anonymous and in no case accessible to other people. The duration of this test is between 10 to 15 minutes.`}
             />
           </div>
 
