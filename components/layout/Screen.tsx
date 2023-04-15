@@ -22,7 +22,7 @@ function Screen({ title, body, image, button, sub, centered }: Props) {
       }
       <div className={`card-body ${centered && "text-center flex justify-center items-center"}`}>
         <h2 className="card-title">{title}</h2>
-        {body && <div className={`text-gray-500`}>{body}</div>}
+        {body && <div className={`text-gray-500 text-justify`}>{body}</div>}
         {sub && <p className="text-gray-500">{sub}</p>}
         <div className="card-actions justify-end">
           {button && <button className="btn btn-primary">{button}</button>}

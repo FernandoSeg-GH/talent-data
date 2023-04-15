@@ -236,11 +236,11 @@ export default function Home() {
           )}
           <div className='mt-6'>
             <Screen
-              title="Disclaimer"
+              title="Disclaimer:"
               body={
                 <>
                   <p className="my-4">
-                    The results of this questionnaire are strictly confidential
+                    The results of this questionnaire are anonymous
                     and in no case accessible to other people.
                   </p>
                   <p className="my-4">
