@@ -1,23 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Question from './QuestionCard';
 
-
-// type Question = {
-//     category?: 'AE' | 'D' | 'RP';
-//     id?: number;
-//     text?: string;
-// };
-
-
-// type Answer = {
-//     [questionId: string]: string;
-//   };
-
-// function Panel({ questions, onAnswerChange, onCalculatePoints, answers }: { questions: Question[], onAnswerChange: (questionId: number, value: string) => void; onCalculatePoints: () => void; answers: Answer }) {
 function Panel() {
-    // const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-   
-  
     return (
       <div className="shadow-2xl p-8 rounded-lg text-white min-w-[380px] max-w-[400px] lg:flex lg:flex-col lg:items-center lg:justify-center ">
       <h1 className="text-2xl font-bold mb-4">Panel de Seguimiento</h1>

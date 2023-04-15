@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Steps from './Steps';
-import Question from './QuestionCard';
+import QuestionCard_ENG from './QuestionCard_ENG';
 
 
 type Question = {
@@ -66,7 +66,7 @@ function Questions_ENG({ questions, onAnswerChange, onCalculatePoints, onRandomi
           <p className='mb-1 text-sm font-semibold'>Your Progress:</p>
           <Steps  current={currentQuestionIndex} total={questions.length} answers={answers} />
         </div>
-        <Question
+        <QuestionCard_ENG
           question={questions[currentQuestionIndex]}
           onAnswerChange={handleAnswerChange}
         />

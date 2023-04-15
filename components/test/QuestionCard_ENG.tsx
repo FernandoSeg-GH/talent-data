@@ -25,11 +25,11 @@ function QuestionCard({ question, onAnswerChange }: { question: Question, onAnsw
     <h3 className="text-xl font-semibold mb-4 text-gray-900 text-left md:text-justify h-28">
       {`${question.id}. ${question.text}`}
     </h3>
-    <img
+    {/* <img
       alt=""
       src={randomImage()}
       className="w-full h-[200px] object-cover rounded-lg mb-6"
-    />
+    /> */}
 
     <div className="flex flex-col items-center justify-between">
       {["1", "2", "3", "4", "5"].map((value) => (
