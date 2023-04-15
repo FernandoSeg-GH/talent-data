@@ -4,7 +4,7 @@ import { AnalyticsScreen } from '@/components/test/AnalyticsScreen'
 import { ResultadosDropdown } from '@/components/test/ResultadosDropdown'
 import { useState } from 'react'
 import questionsJson from '@/lib/questionsJson.json'
-import { Answer, FormChangeEvent } from '@/lib/types'
+import { Answer } from '@/lib/types'
 import { Points } from '@/lib/types'
 import Layout from '@/components/layout/Layout'
 
@@ -12,7 +12,6 @@ import Layout from '@/components/layout/Layout'
 export default function Home() {
   const [dbQuestions, setDbQuestions] = useState(questionsJson);
   const [answers, setAnswers] = useState<Answer>({});
-  const [formValues, setFormValues] = useState({});
   const [pointsModal, setPointsModal] = useState("");
 
   const [lapapaAE, setLapapaAE] = useState(0);

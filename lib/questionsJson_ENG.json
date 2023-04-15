@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "text": "I feel emotionally exhausted in my job.",
+    "category": "AE"
+  },
+  {
+    "id": 2,
+    "text": "I feel tired at the end of the workday.",
+    "category": "AE"
+  },
+  {
+    "id": 3,
+    "text": "When I wake up in the morning and face another workday, I feel fatigued.",
+    "category": "AE"
+  },
+  {
+    "id": 4,
+    "text": "I feel that I can easily understand the people I have to serve.",
+    "category": "RP"
+  },
+  {
+    "id": 5,
+    "text": "I feel that I am treating my colleagues with a lack of empathy.",
+    "category": "D"
+  },
+  {
+    "id": 6,
+    "text": "I feel that working with people all day tires me out.",
+    "category": "AE"
+  },
+  {
+    "id": 7,
+    "text": "I feel that I effectively deal with the problems of the people I have to serve.",
+    "category": "RP"
+  },
+  {
+    "id": 8,
+    "text": "I feel that my job is wearing me out.",
+    "category": "AE"
+  },
+  {
+    "id": 9,
+    "text": "I feel that I am positively influencing other people's lives through my work.",
+    "category": "RP"
+  },
+  {
+    "id": 10,
+    "text": "I feel that I have become strict with people.",
+    "category": "D"
+  },
+  {
+    "id": 11,
+    "text": "I am worried that this job is emotionally hardening me.",
+    "category": "D"
+  },
+  { "id": 12, "text": "I feel very energetic at my job.", "category": "RP" },
+  { "id": 13, "text": "I feel frustrated with my work.", "category": "AE" },
+  {
+    "id": 14,
+    "text": "I feel like I spend too much time at my job.",
+    "category": "AE"
+  },
+  {
+    "id": 15,
+    "text": "I feel like I really don't care what happens to the people I have to serve professionally.",
+    "category": "D"
+  },
+  {
+    "id": 16,
+    "text": "I feel that working in direct contact with people tires me out.",
+    "category": "AE"
+  },
+  {
+    "id": 17,
+    "text": "I feel that I can easily create a pleasant atmosphere at my job.",
+    "category": "RP"
+  },
+  {
+    "id": 18,
+    "text": "I feel stimulated after having worked closely with the people I have to serve.",
+    "category": "RP"
+  },
+  {
+    "id": 19,
+    "text": "I think I achieve many valuable things in this job.",
+    "category": "RP"
+  },
+  {
+    "id": 20,
+    "text": "I feel like I'm at the limit of my abilities.",
+    "category": "AE"
+  },
+  {
+    "id": 21,
+    "text": "I feel that emotional problems are dealt with appropriately in my job.",
+    "category": "RP"
+  },
+  {
+    "id": 22,
+    "text": "I feel like my coworkers are blaming me for some of their problems.",
+    "category": "D"
+  }
+]
