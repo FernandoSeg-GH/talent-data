@@ -7,7 +7,12 @@ type Props = {
 };
 
 export default function Steps({ current, total, answers }: Props) {
-  const percentComplete = Math.round((current / total) * 100);
+  let percentComplete = Math.round((current / total) * 100);
+
+  if (Object.keys(answers).length === total) {
+    percentComplete = 100;
+  }
+
   const progressBarStyle = {
     "--value": `${percentComplete}`,
   };

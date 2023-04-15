@@ -22,7 +22,7 @@ function QuestionCard({ question, onAnswerChange }: { question: Question, onAnsw
 
   return (
   <div className="bg-dark p-0 rounded-lg min-h-[250px] w-full flex flex-col justify-between">
-    <h3 className="text-xl font-semibold mb-4 text-gray-900 text-left md:text-justify h-28">
+    <h3 className="text-xl font-semibold mb-4 text-gray-900 text-left md:text-justify h-20">
       {`${question.id}. ${question.text}`}
     </h3>
     {/* <img
