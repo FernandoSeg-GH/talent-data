@@ -7,6 +7,7 @@ import questionsJson_ENG from '@/lib/questionsJson_ENG.json'
 import { Answer } from '@/lib/types'
 import { Points } from '@/lib/types'
 import Layout from '@/components/layout/Layout'
+import Questions_ENG from '@/components/test/Questions_ENG'
 
 
 export default function Home() {
@@ -137,7 +138,7 @@ export default function Home() {
           <div className="flex flex-col justify-between items-start mt-10 relative">
             {/* <Panel />  */}
             <Screen
-              title="Prompt:"
+              title="Instructions:"
               body={
                 <>
                   <div className="text-gray-900 text-justify mb-4">
@@ -206,7 +207,7 @@ export default function Home() {
                 </>
               }
             />
-            <Questions
+            <Questions_ENG
               questions={dbQuestions}
               onAnswerChange={handleAnswerChange}
               onCalculatePoints={handleCalculatePoints}
