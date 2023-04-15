@@ -130,8 +130,8 @@ export default function Home() {
         <div className="flex flex-col justify-center relative">
           <div>
             <Screen
-              title="Bienvenido"
-              body={`Hola! Bienvenido a la página de inicio`}
+              title="Welcome!"
+              body={`This is an app that will help you to know your stress levels in the workplace. The results of this questionnaire are, anonymous and in no case accessible to other people.`}
             />
           </div>
 
