@@ -22,6 +22,17 @@ export default function Home() {
 
   const handleAnswerChange = (questionId: number, value: string) => {
     setAnswers({ ...answers, [questionId]: value });
+
+    if (Object.keys(answers).length + 1 === dbQuestions.length) {
+      // Calculate points
+      const points = calculatePoints();
+      const message = `Your stress levels scores are:
+        AE: ${points.AE}
+        D: ${points.D}
+        RP: ${points.RP}
+      `;
+      setPointsModal(message);
+    }
   };
 
   // ############ CALCULATE PONTS ############
@@ -35,19 +46,6 @@ export default function Home() {
     }
     console.log(points, "points:");
     return points;
-  };
-
-  // ############ HANDLE CALCULATE ############
-  const handleCalculatePoints = () => {
-    const points = calculatePoints();
-
-    const message = `Your stress levels scores are:
-    AE: ${points.AE}
-    D: ${points.D}
-    RP: ${points.RP}
-    `;
-    setPointsModal(message);
-    // alert(message);
   };
 
   // ############ CALCULATE CLASSIFICATIONS ############
@@ -92,7 +90,7 @@ export default function Home() {
   // ############ HANDLE CALCULATE SAFE ############
   const handleCalculatePointsSAFE = () => {
     if (Object.keys(answers).length !== dbQuestions.length) {
-      alert("Debes responder todas las preguntas para calcular tu percentil.");
+      alert("You must answer all questions in order to calculate the results.");
       return;
     }
 
@@ -122,6 +120,21 @@ export default function Home() {
   // ############ CHECK IF ALL QUESTIONS ANSWERED ############
   const answersArray = Object.keys(answers);
   const allQuestionsAnswered = answersArray.length === dbQuestions.length;
+
+
+  // ############ HANDLE CALCULATE ############
+  const handleCalculatePoints = () => {
+    const points = calculatePoints();
+
+    const message = `Your stress levels scores are:
+    AE: ${points.AE}
+    D: ${points.D}
+    RP: ${points.RP}
+    `;
+    setPointsModal(message);
+    // alert(message);
+    damelapapa();
+  };
   
   return (
     <Layout>
@@ -169,13 +182,13 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="flex justify-between mt-10 -l-20">
-                    <button
+                    {/* <button
                       className="btn btn-ghost"
                       onClick={() => randomizeAnswers()}
                     >
                       Random
-                    </button>
-                    {Object.keys(answers).length > 0 && (
+                    </button> */}
+                    {/* {Object.keys(answers).length > 0 && (
                       <>
                         <button
                           className="btn btn-primary"
@@ -202,7 +215,7 @@ export default function Home() {
                           </div>
                         </label>
                       </>
-                    )}
+                    )} */}
                   </div>
                 </>
               }
@@ -217,13 +230,13 @@ export default function Home() {
           </div>
 
           {allQuestionsAnswered && (
-            <div className="w-full flex flex-col justify-center">
-              <button
+            <div className="w-full flex flex-col justify-center mt-6">
+              {/* <button
                 onClick={damelapapa}
                 className="btn btn-outline btn-primary w-[200px] my-10 mx-auto"
               >
                 Dame la papa
-              </button>
+              </button> */}
 
               <AnalyticsScreen
                 lapapaAE={lapapaAE}

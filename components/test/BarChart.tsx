@@ -100,18 +100,18 @@ export const BarChart: React.FC<BarChartProps> = ({ data }) => {
                 }
               />
               <div className="w-full flex justify-between text-xs px-2">
-                <span>BAJO</span>
-                <span>MEDIO</span>
-                <span>ALTO</span>
+                <span>LOW</span>
+                <span>MEDIUM</span>
+                <span>HIGH</span>
               </div>
             </div>
           </div>
         );
       })}
       <div className="mt-10">
-        Si AE high + D high + RP low = SI
+        {/* Si AE high + D high + RP low = SI */}
         <h2>Stress Levels: 
-          { categoryData["AE"].tier == "high" && categoryData["D"].tier == "high" && categoryData["RP"].tier == "low" ? <span className="bg-red-200 text-black shadow-sm mx-4 rounded px-4 py-1">SI</span> : <span className="bg-yellow-400 text-black shadow-sm mx-4 rounded px-4 py-1">NO</span>}</h2>
+          { categoryData["AE"].tier == "high" && categoryData["D"].tier == "high" && categoryData["RP"].tier == "low" ? <span className="bg-red-400 text-black shadow-sm mx-4 rounded px-4 py-1">HIGH</span> : <span className="bg-yellow-400 text-black shadow-sm mx-4 rounded px-4 py-1">LOW</span>}</h2>
         {/* <h2>Brunout: <span className="bg-red-200 text-black shadow-sm mx-4 rounded px-4 py-1">SI</span><span className="bg-yellow-400 text-black shadow-sm mx-4 rounded px-4 py-1">NO</span></h2> */}
       </div>
     </div>
