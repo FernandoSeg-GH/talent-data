@@ -234,6 +234,28 @@ export default function Home() {
               <ResultadosDropdown_ENG points={calculatePoints()} />
             </div>
           )}
+          <div className='mt-6'>
+            <Screen
+              title="Disclaimer"
+              body={
+                <>
+                  <p className="my-4">
+                    The results of this questionnaire are strictly confidential
+                    and in no case accessible to other people.
+                  </p>
+                  <p className="my-4">
+                    The information provided by the user is not used for any
+                    purpose other than the calculation of the results of the
+                    questionnaire.
+                  </p>
+                  <p className="my-4">
+                    The results of this questionnaire are not a substitute for
+                    medical advice or treatment.
+                  </p>
+                </>
+              }
+            />
+          </div>
         </div>
       </div>
     </Layout>
