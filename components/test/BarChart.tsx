@@ -74,9 +74,9 @@ export const BarChart: React.FC<BarChartProps> = ({ data }) => {
           <div key={category}>
             <div className="flex items-center justify-between my-8 mb-2">
               <p className="text-sm font-semibold">
-                {category == "AE" ? "Agotamiento Emocional" : ""}
-                {category == "D" ? "Despersonalización" : ""}
-                {category == "RP" ? "Realización Personal" : ""}
+                {category == "AE" ? "Desgaste Emocional" : ""}
+                {category == "D" ? "Distanciamento Inter-Personal" : ""}
+                {category == "RP" ? "Productividad Laboral" : ""}
               
               </p>
             </div>
