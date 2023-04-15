@@ -37,7 +37,7 @@ const RPMessage = ({ points }: Props) => {
         body={
           <div className="text-justify">
             <p className="my-4">The Work Productivity subscale evaluates feelings of self-efficacy and productivity in the workplace. It describes feelings of competence and perception of factors for work success.</p>
-            <p>Your result is HIGH.  Reflect on how you perceive yourself professionally in the current and future time frame to have a clear assessment of how your professional self-realization is evolving.</p>
+            <p>Your result is HIGH. Good job! Reflect on how you perceive yourself professionally in the current and future time frame to have a clear assessment of how your professional self-realization is evolving.</p>
           </div>
         }
       />

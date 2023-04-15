@@ -38,7 +38,7 @@ function QuestionCard({ question, onAnswerChange }: { question: Question, onAnsw
           className={`bg-blue-100 w-full my-1 text-gray-800 font-semibold py-2 px-4 border border-blue-200 rounded shadow hover:shadow-md transition duration-150 ease-out hover:ease-in hover:-translate-y-0.5	 ${answer === value ? 'bg-blue-300 text-white' : ''}`}
           onClick={() => handleChange({ target: { value } } as React.ChangeEvent<HTMLInputElement>)}
         >
-          {value === "1" ? 'Nunca' : value === "2" ? 'Algunas Veces al Año' : value === "3" ? 'Algunas Veces al Mes' : value === "4" ? 'Algunas Veces a la Semana' : 'Diariamente'}
+          {value === "1" ? 'Never' : value === "2" ? 'Sometimes a Year' : value === "3" ? 'Sometimes a Month' : value === "4" ? 'Sometimes a Week' : 'Daily'}
         </button>
       ))}
     </div>
