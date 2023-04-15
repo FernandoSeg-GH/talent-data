@@ -187,7 +187,6 @@ export default function Home() {
                 classifications={classifications}
               />
               <ResultadosDropdown_ENG points={calculatePoints()} />
-              <button onClick={() => damelapapa()} className="btn btn-primary">dame la papa</button>
             </div>
           )}
 
