@@ -1,16 +1,16 @@
 import Screen from '@/components/layout/Screen'
 import Questions from '@/components/test/Questions'
 import { AnalyticsScreen } from '@/components/test/AnalyticsScreen'
-import { ResultadosDropdown } from '@/components/test/ResultadosDropdown'
+import { ResultadosDropdown_ENG } from '@/components/test/ResultadosDropdown_ENG'
 import { useState } from 'react'
-import questionsJson from '@/lib/questionsJson.json'
+import questionsJson_ENG from '@/lib/questionsJson_ENG.json'
 import { Answer } from '@/lib/types'
 import { Points } from '@/lib/types'
 import Layout from '@/components/layout/Layout'
 
 
 export default function Home() {
-  const [dbQuestions, setDbQuestions] = useState(questionsJson);
+  const [dbQuestions, setDbQuestions] = useState(questionsJson_ENG);
   const [answers, setAnswers] = useState<Answer>({});
   const [pointsModal, setPointsModal] = useState("");
 
@@ -126,115 +126,115 @@ export default function Home() {
     <Layout>
       {/* */}
       <div className="w-full min-h-[80vh] pb-10">
-
-          <div className="flex flex-col justify-center relative">
-           
-              <div>
-                <Screen
-                  title="Bienvenido"
-                  body={`Hola! Bienvenido a la página de inicio`}
-                />
-              </div>
-
-            <div className="flex flex-col justify-between items-start mt-10 relative">
-              {/* <Panel />  */}
-              <Screen
-                title="Consigna:"
-                body={
-                  <>
-                    <div className="text-gray-900 text-justify mb-4">
-                      <p className="my-4">
-                        A continuación encontrará una serie de enunciados acerca
-                        de su <strong>relación</strong> con el <strong>trabajo</strong> y de sus <strong>sentimientos</strong> hacia este. Su objetivo es evaluar la presencia del síndrome del
-                        estrés en el ámbito laboral.
-                      </p>
-                      <p className="my-4">
-                        Los resultados de este cuestionario son estrictamente
-                        confidenciales y en ningún caso accesibles a otras
-                        personas.
-                      </p>
-                      <p className="my-4">
-                        A cada una de las frases debe responder expresando la {""}
-                        <strong>frecuencia</strong> con que tiene ese <strong>sentimiento</strong> de la siguiente
-                        forma:
-                      </p>
-                      <li>Nunca</li>
-                      <li>Algunas Veces al Año</li>
-                      <li>Algunas Veces al Mes</li>
-                      <li>Algunas Veces a la Semana</li>
-                      <li>Diariamente</li>
-                      <p className="my-4">Seleccione la opción que considere <span className="underline">más adecuada</span>.</p>
-                    </div>
-                    <div className="flex justify-between mt-10 -l-20">
-                      <button
-                        className="btn btn-ghost"
-                        onClick={() => randomizeAnswers()}
-                      >
-                        Aleatorio
-                      </button>
-                      {Object.keys(answers).length > 0 && (
-                        <>
-                          <button
-                            className="btn btn-primary"
-                            onClick={handleCalculatePointsSAFE}
-                          >
-                            Ver resultados
-                          </button>
-                          <input
-                            type="checkbox"
-                            id="my-modal-4"
-                            className="modal-toggle"
-                          />
-                          <label
-                            htmlFor="my-modal-4"
-                            className="modal cursor-pointer"
-                          >
-                            <div className="modal-box relative">
-                              <h3 className="text-lg font-bold">
-                                Estos son tus resultados
-                              </h3>
-                              <div className="py-4">
-                                {pointsModal && <p>{pointsModal}</p>}
-                              </div>
-                            </div>
-                          </label>
-                        </>
-                      )}
-                    </div>
-                  </>
-                }
-              />
-
-              <Questions
-                questions={dbQuestions}
-                onAnswerChange={handleAnswerChange}
-                onCalculatePoints={handleCalculatePoints}
-                answers={answers}
-                onRandomizeAnswers={randomizeAnswers}
-              />
-            </div>
-
-            {allQuestionsAnswered && (
-              <div className="w-full flex flex-col justify-center">
-                <button
-                  onClick={damelapapa}
-                  className="btn btn-outline btn-primary w-[200px] my-10 mx-auto"
-                >
-                  Dame la papa
-                </button>
-                
-                <AnalyticsScreen
-                  lapapaAE={lapapaAE}
-                  lapapaD={lapapaD}
-                  lapapaRP={lapapaRP}
-                />
-
-                <ResultadosDropdown points={calculatePoints()} />
-                
-              </div>
-            )}
+        <div className="flex flex-col justify-center relative">
+          <div>
+            <Screen
+              title="Bienvenido"
+              body={`Hola! Bienvenido a la página de inicio`}
+            />
           </div>
+
+          <div className="flex flex-col justify-between items-start mt-10 relative">
+            {/* <Panel />  */}
+            <Screen
+              title="Prompt:"
+              body={
+                <>
+                  <div className="text-gray-900 text-justify mb-4">
+                    <p className="my-4">
+                      Below you will find a series of statements about your{" "}
+                      <strong>relationship</strong> with <strong>work</strong>{" "}
+                      and your <strong>feelings</strong> towards it. Your
+                      objective is to evaluate the presence of work-related
+                      stress syndrome.
+                    </p>
+                    <p className="my-4">
+                      The results of this questionnaire are strictly
+                      confidential and in no case accessible to other people.
+                    </p>
+                    <p className="my-4">
+                      You must respond to each of the sentences by expressing
+                      the <strong>frequency</strong> with which you have that{" "}
+                      <strong>feeling</strong> in the following way:
+                    </p>
+                    <li>Never</li>
+                    <li>Occasionally throughout the year</li>
+                    <li>Occasionally throughout the month</li>
+                    <li>Occasionally throughout the week</li>
+                    <li>Daily</li>
+                    <p className="my-4">
+                      Select the option that you consider the{" "}
+                      <span className="underline">most appropriate</span>.
+                    </p>
+                  </div>
+                  <div className="flex justify-between mt-10 -l-20">
+                    <button
+                      className="btn btn-ghost"
+                      onClick={() => randomizeAnswers()}
+                    >
+                      Random
+                    </button>
+                    {Object.keys(answers).length > 0 && (
+                      <>
+                        <button
+                          className="btn btn-primary"
+                          onClick={handleCalculatePointsSAFE}
+                        >
+                          See results
+                        </button>
+                        <input
+                          type="checkbox"
+                          id="my-modal-4"
+                          className="modal-toggle"
+                        />
+                        <label
+                          htmlFor="my-modal-4"
+                          className="modal cursor-pointer"
+                        >
+                          <div className="modal-box relative">
+                            <h3 className="text-lg font-bold">
+                              These are your results
+                            </h3>
+                            <div className="py-4">
+                              {pointsModal && <p>{pointsModal}</p>}
+                            </div>
+                          </div>
+                        </label>
+                      </>
+                    )}
+                  </div>
+                </>
+              }
+            />
+            <Questions
+              questions={dbQuestions}
+              onAnswerChange={handleAnswerChange}
+              onCalculatePoints={handleCalculatePoints}
+              answers={answers}
+              onRandomizeAnswers={randomizeAnswers}
+            />
+          </div>
+
+          {allQuestionsAnswered && (
+            <div className="w-full flex flex-col justify-center">
+              <button
+                onClick={damelapapa}
+                className="btn btn-outline btn-primary w-[200px] my-10 mx-auto"
+              >
+                Dame la papa
+              </button>
+
+              <AnalyticsScreen
+                lapapaAE={lapapaAE}
+                lapapaD={lapapaD}
+                lapapaRP={lapapaRP}
+              />
+
+              <ResultadosDropdown_ENG points={calculatePoints()} />
+            </div>
+          )}
+        </div>
       </div>
     </Layout>
-  )
+  );
 }
