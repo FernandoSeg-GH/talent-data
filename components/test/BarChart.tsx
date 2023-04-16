@@ -1,15 +1,12 @@
 import React from "react";
 import Screen from "../layout/Screen";
+import { Classifications } from "@/lib/types";
 
 type BarChartProps = {
   data: {
     [key: string]: number;
   };
-  classifications: {
-    AE: string;
-    D: string;
-    RP: string;
-  };
+  classifications: Classifications | any;
 };
 
 const referenceValues: {
@@ -20,13 +17,14 @@ const referenceValues: {
   RP: { low: 0, medium: 34, high: 40 },
 };
 
-const categoryLabels = {
+const categoryLabels: { [key: string]: string } = {
   AE: "Emotional Exhaustion",
   D: "Interpersonal Distancing",
   RP: "Work Productivity",
 };
 
-const getGradient = (category: any, classification: any, relativeValue: any) => {
+
+const getGradient = (category: "AE" | "D" | "RP", classification: "low" | "medium" | "high", relativeValue: number) => {
   if (classification === "low") {
     return category === "RP" ? "red" : "yellow";
   }

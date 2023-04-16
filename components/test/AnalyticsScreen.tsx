@@ -1,3 +1,4 @@
+import { Classifications } from "@/lib/types";
 import Screen from "../layout/Screen";
 import { BarChart } from "./BarChart";
 
@@ -6,11 +7,8 @@ type AnalyticsScreenProps = {
   lapapaAE: number;
   lapapaD: number;
   lapapaRP: number;
-  classifications: {
-    AE: string;
-    D: string;
-    RP: string;
-  };
+  classifications: Classifications
+  
 };
 
   
