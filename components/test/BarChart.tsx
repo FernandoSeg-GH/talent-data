@@ -1,6 +1,6 @@
+import React from "react";
 import Screen from "../layout/Screen";
 
-// ############## BAR CHART SCREEN ##############
 type BarChartProps = {
   data: {
     [key: string]: number;
@@ -12,97 +12,77 @@ type BarChartProps = {
   };
 };
 
-
-type CategoryData = {
-  value: number;
-  tier: string;
-};
-
 const referenceValues: {
   [key: string]: { low: number; medium: number; high: number };
 } = {
   AE: { low: 0, medium: 19, high: 27 },
   D: { low: 0, medium: 6, high: 10 },
-  RP: { low:0, medium: 34, high: 40 },
+  RP: { low: 0, medium: 34, high: 40 },
 };
 
-const getTier = (
-  value: number,
-  low: number,
-  medium: number,
-  high: number
-): string => {
-  if (value >= high) {
-    return "high";
-  } else if (value >= low && value < medium) {
-    return "low";
-  } else {
-    return "medium";
+const categoryLabels = {
+  AE: "Emotional Exhaustion",
+  D: "Interpersonal Distancing",
+  RP: "Work Productivity",
+};
+
+const getGradient = (category: any, classification: any, relativeValue: any) => {
+  if (classification === "low") {
+    return category === "RP" ? "red" : "yellow";
   }
+
+  const gradientColors = {
+    AE: {
+      medium: `linear-gradient(90deg, yellow, orange ${relativeValue * 100}%)`,
+      high: `linear-gradient(90deg, yellow, orange, red ${relativeValue * 100}%)`,
+    },
+    D: {
+      medium: `linear-gradient(90deg, yellow, orange ${relativeValue * 100}%)`,
+      high: `linear-gradient(90deg, yellow, orange, red ${relativeValue * 100}%)`,
+    },
+    RP: {
+      medium: `linear-gradient(90deg, red, orange ${relativeValue * 100}%)`,
+      high: `linear-gradient(90deg, red, orange, yellow ${relativeValue * 100}%)`,
+    },
+  };
+
+  return gradientColors[category][classification];
 };
 
 export const BarChart: React.FC<BarChartProps> = ({ data, classifications }) => {
-  const categoryKeys = Object.keys(referenceValues);
-  const categoryData: { [key: string]: CategoryData } = {};
-
-  for (const category of categoryKeys) {
-    const value = data[category];
-    const { low, medium, high } = referenceValues[category];
-
-    const tier = getTier(value, low, medium, high);
-
-    categoryData[category] = { value, tier };
-  }
-
   return (
     <Screen
       title="Your Stress Levels:"
       body={
         <div className="w-full">
-          {categoryKeys.map((category) => {
-            const { value, tier } = categoryData[category];
-            const position = tier === "low" ? "0%" : tier === "medium" ? "50%" : "100%";
+          {Object.keys(referenceValues).map((category) => {
+            const value = data[category];
+            const classification = classifications[category];
+            const relativeValue = (() => {
+              if (value <= referenceValues[category].medium) {
+                return (value / referenceValues[category].medium) * (1 / 3);
+              } else {
+                return (1 / 3) + ((value - referenceValues[category].medium) / (referenceValues[category].high - referenceValues[category].medium)) * (2 / 3);
+              }
+            })();
 
             return (
-              <div key={category}>
-                <div className="flex items-center justify-between my-8 mb-2">
-                  <p className="text-sm font-semibold">
-                    {category == "AE" ? "Emocional Exhaustion" : ""}
-                    {category == "D" ? "Interpersonal Distancing" : ""}
-                    {category == "RP" ? "Work Productivity" : ""}
-                  </p>
-                </div>
-                <div className="flex flex-col items-center justify-between">
-                  <input
-                    type="range"
-                    min={referenceValues[category].low}
-                    max={referenceValues[category].high}
-                    value={value}
-                    className={`cursor-default w-full range ${
-                      tier === "low" ? "bg-blue-500" : ""
-                    } ${tier === "medium" ? "bg-green-500" : ""} ${
-                      tier === "high" ? "bg-red-500" : ""
-                    }`}
-                    style={
-                      {
-                        "--position": position,
-                      } as React.CSSProperties
-                    }
-                  />
-                  <div className="w-full flex justify-between text-xs px-2">
-                    <span>LOW</span>
-                    <span>MEDIUM</span>
-                    <span>HIGH</span>
-                  </div>
+              <div key={category} className="mb-8">
+                <p className="text-sm font-semibold mb-2">{categoryLabels[category]}</p>
+                <progress
+                  className={`progress progress-success w-full`}
+                  value={relativeValue * 100}
+                  max="100"
+                ></progress>
+                <div className="w-40 mx-auto flex justify-between text-xs mt-1 items-center">
+                  <span className="relative left-[-50%]">LOW</span>
+                  <span className="relative -translate-x-1/2">MEDIUM</span>
+                  <span className="relative right-[-50%]">HIGH</span>
                 </div>
               </div>
             );
           })}
           <div className="mt-10">
-            {/* <h2>Stress Levels: 
-              { categoryData["AE"].tier == "high" && categoryData["D"].tier == "high" && categoryData["RP"].tier == "low" ? <span className="bg-red-400 text-black shadow-sm mx-4 rounded px-4 py-1">HIGH</span> : <span className="bg-yellow-400 text-black shadow-sm mx-4 rounded px-4 py-1">LOW</span>}
-              </h2> */}
-              <div className="mt-10">
             <h2>
               Stress Levels:{" "}
               {classifications.AE === "high" &&
@@ -117,7 +97,6 @@ export const BarChart: React.FC<BarChartProps> = ({ data, classifications }) => 
                 </span>
               )}
             </h2>
-          </div>
           </div>
         </div>
       }
