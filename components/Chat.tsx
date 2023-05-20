@@ -10,7 +10,7 @@ const COOKIE_NAME = 'talent-data-chat'
 export const initialMessages: ChatGPTMessage[] = [
   {
     role: 'assistant',
-    content: 'Hi! I am a friendly AI assistant. Ask me anything!',
+    content: "Welcome to the stress-free workplace chatbot! I'm here to assist you with managing stress and improving your well-being at work.",
   },
 ]
 
