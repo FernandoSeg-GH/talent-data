@@ -5,6 +5,7 @@ import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 // import { AuthProvider, useAuth } from '@/lib/auth';
 import Provider from "@/components/auth/Provider";
 import { SessionProvider, useSession } from "next-auth/react";
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const isAuthenticated = false; // Update this with the real authentication status
@@ -17,7 +18,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     //   </AuthProvider>
     // </ProtectedRoute>
       // <SessionProvider session={session}>
+      <>
         <Component {...pageProps} />
+        <Analytics />
+        </>
       // </SessionProvider>
   ) 
     
