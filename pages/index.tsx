@@ -1,3 +1,4 @@
+"use client"
 import Screen from '@/components/layout/Screen'
 import Questions from '@/components/test/Questions'
 import { AnalyticsScreen } from '@/components/test/AnalyticsScreen'

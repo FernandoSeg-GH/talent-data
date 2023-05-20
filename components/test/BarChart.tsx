@@ -82,7 +82,7 @@ export const BarChart: React.FC<BarChartProps> = ({ data, classifications }) => 
           })}
           <div className="mt-10">
             <h2>
-              Stress Levels:{" "}
+              Stress Prescence:{" "}
               {classifications.AE === "high" &&
               classifications.D === "high" &&
               classifications.RP === "low" ? (

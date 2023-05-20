@@ -1,0 +1,49 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  role      UserRole
+  tests     Test[]    @relation("UserTests")
+  results   TestResult[] @relation("UserResults")
+}
+
+enum UserRole {
+  OWNER
+  MANAGER
+  DIRECTOR
+}
+
+model Test {
+  id         Int         @id @default(autoincrement())
+  title      String
+  creatorId  Int
+  creator    User        @relation("UserTests", fields: [creatorId], references: [id])
+  questions  Question[]
+  results    TestResult[] @relation("TestResults")
+}
+
+model Question {
+  id       Int    @id @default(autoincrement())
+  text     String
+  category String
+  testId   Int
+  test     Test   @relation(fields: [testId], references: [id])
+}
+
+model TestResult {
+  id       Int    @id @default(autoincrement())
+  testId   Int
+  test     Test   @relation("TestResults", fields: [testId], references: [id])
+  userId   Int
+  user     User   @relation("UserResults", fields: [userId], references: [id])
+  scores   Json
+}

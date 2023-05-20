@@ -1,4 +1,5 @@
-import { signIn, signOut } from "next-auth/react";
+/* eslint-disable @next/next/no-img-element */
+import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 
@@ -9,6 +10,7 @@ type Props = {
 };
 
 function Navbar({ isDarkMode, toggleTheme, session }: Props) {
+
   return (
     <div className="navbar bg-base-100 mt-6">
       <div className="flex-1">
@@ -75,9 +77,11 @@ function Navbar({ isDarkMode, toggleTheme, session }: Props) {
             <div className="w-16 mask mask-squircle ">
               <img
                 className=""
+                alt="Talent Data"
                 src={
                   session
-                    ? "https://image.lexica.art/full_jpg/cf50b4a2-2dd9-438d-981c-fde1befe39e7"
+                    // ? "https://image.lexica.art/full_jpg/cf50b4a2-2dd9-438d-981c-fde1befe39e7"
+                    ? session?.user?.image as string
                     : "https://image.lexica.art/full_jpg/519a4fd0-eac5-4cf7-8a79-8a53652226c1"
                 }
               />
@@ -95,16 +99,20 @@ function Navbar({ isDarkMode, toggleTheme, session }: Props) {
               </a>
             </li>
             <li>{session && <a>Mis Resultados</a>}</li>
-            <li>
+            {/* <li>
               <Link href="/test">Iniciar Test</Link>
-            </li>
+            </li> */}
             <li>
+              <Link href="/chat">Smart Chat</Link>
+            </li>
+            {/* <li>
               {session ? (
                 <button onClick={() => signOut()}>Cerrar Sesión</button>
               ) : (
                 <button onClick={() => signIn()}>Iniciar Sesión</button>
-              )}
-            </li>
+                )}
+            </li> */}
+                <button onClick={() => signIn()}>Iniciar Sesión</button>
           </ul>
         </div>
       </div>
