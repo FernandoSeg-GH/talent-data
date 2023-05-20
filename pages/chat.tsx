@@ -1,3 +1,4 @@
+"use client"
 import { Chat } from '@/components/Chat'
 import Layout from '@/components/layout/Layout'
 import React from 'react'
