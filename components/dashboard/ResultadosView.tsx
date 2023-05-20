@@ -84,7 +84,7 @@ const tabs = [
             <label htmlFor="current-tab" className="sr-only">
               Select a tab
             </label>
-            <select
+            {/* <select
               id="current-tab"
               name="current-tab"
               className="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
@@ -93,7 +93,7 @@ const tabs = [
               {tabs.map((tab) => (
                 <option key={tab.name}>{tab.name}</option>
               ))}
-            </select>
+            </select> */}
           </div>
           <div className="hidden sm:block">
             <nav className="-mb-px flex space-x-8">
@@ -228,9 +228,9 @@ const tabs = [
                           <time className="text-gray-400 sm:hidden" dateTime={item.dateTime}>
                             {item.date}
                           </time>
-                          <div className={classNames(statuses[item.status], 'flex-none rounded-full p-1')}>
+                          {/* <div className={classNames(statuses[item.status], 'flex-none rounded-full p-1')}>
                             <div className="h-1.5 w-1.5 rounded-full bg-current" />
-                          </div>
+                          </div> */}
                           <div className="hidden text-black sm:block">{item.status}</div>
                         </div>
                       </td>
