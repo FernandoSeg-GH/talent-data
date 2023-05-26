@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-
 type Question = {
-    category: string;
-    id: number;
-    text: string;
+  category: string;
+  id: number;
+  text: string;
 };
 
-function QuestionCard({ question, onAnswerChange }: { question: Question, onAnswerChange: (value: string) => void }) {
+function QuestionCard({ question, onAnswerChange, selectedLanguage }: { question: Question, onAnswerChange: (value: string) => void, selectedLanguage: number; }) {
   const [answer, setAnswer] = useState('');
 
   useEffect(() => {
@@ -20,46 +19,67 @@ function QuestionCard({ question, onAnswerChange }: { question: Question, onAnsw
     onAnswerChange(value);
   };
 
+  const getTranslatedText = (value: string) => {
+    if (selectedLanguage === 1) {
+      switch (value) {
+        case "1":
+          return "Never";
+        case "2":
+          return "Sometimes a Year";
+        case "3":
+          return "Sometimes a Month";
+        case "4":
+          return "Sometimes a Week";
+        case "5":
+          return "Daily";
+        default:
+          return "";
+      }
+    } else if (selectedLanguage === 2) {
+      switch (value) {
+        case "1":
+          return "Nunca";
+        case "2":
+          return "Ocasionalmente al Año";
+        case "3":
+          return "Ocasionalmente al Mes";
+        case "4":
+          return "Ocasionalmente a la Semana";
+        case "5":
+          return "Diario";
+        default:
+          return "";
+      }
+    } else {
+      return "";
+    }
+  };
+
   return (
-  <div className="bg-dark p-0 rounded-lg min-h-[250px] w-full flex flex-col justify-between">
-    <h3 className="text-xl font-semibold mb-4 text-gray-900 text-left md:text-justify h-20 sm:h-32">
-      {`${question.id}. ${question.text}`}
-    </h3>
-    {/* <img
-      alt=""
-      src={randomImage()}
-      className="w-full h-[200px] object-cover rounded-lg mb-6"
-    /> */}
+    <div className="bg-dark p-0 rounded-lg min-h-[250px] w-full flex flex-col justify-between">
+      <h3 className="text-xl font-semibold mb-4 text-gray-900 text-left md:text-justify h-20 sm:h-32">
+        {`${question.id}. ${question.text}`}
+      </h3>
 
-    <div className="flex flex-col items-center justify-between">
-      {["1", "2", "3", "4", "5"].map((value) => (
-        <button
-          key={value}
-          className={`bg-blue-100 w-full my-1 text-gray-800 font-semibold py-2 px-4 border border-blue-200 rounded shadow hover:shadow-md transition duration-150 ease-out hover:ease-in hover:-translate-y-0.5	 ${answer === value ? 'bg-blue-300 text-white' : ''}`}
-          onClick={() => handleChange({ target: { value } } as React.ChangeEvent<HTMLInputElement>)}
-        >
-          {value === "1" ? 'Never' : value === "2" ? 'Sometimes a Year' : value === "3" ? 'Sometimes a Month' : value === "4" ? 'Sometimes a Week' : 'Daily'}
-        </button>
-      ))}
+      <div className="flex flex-col items-center justify-between">
+        {["1", "2", "3", "4", "5"].map((value) => (
+          <button
+            key={value}
+            className={`bg-blue-100 w-full my-1 text-gray-800 font-semibold py-2 px-4 border border-blue-200 rounded shadow hover:shadow-md transition duration-150 ease-out hover:ease-in hover:-translate-y-0.5 ${
+              answer === value ? "bg-blue-300 text-white" : ""
+            }`}
+            onClick={() =>
+              handleChange({
+                target: { value },
+              } as React.ChangeEvent<HTMLInputElement>)
+            }
+          >
+            {getTranslatedText(value)}
+          </button>
+        ))}
+      </div>
     </div>
-  </div>
-);
-
+  );
 }
 
-
-export default QuestionCard
-
-const cardImages = [
-    // "https://image.lexica.art/full_jpg/95af1556-b22e-4747-ab98-b53f86889b38",
-    // "https://image.lexica.art/full_jpg/81647080-17b2-46e7-8916-ea2e1c7fa07d",
-    // "https://image.lexica.art/full_jpg/40481be6-89fb-4854-ab9b-c8b434874d2a",
-    // "https://image.lexica.art/full_jpg/954cb1a6-fef0-44de-989f-abf029f83c8f",
-    "https://image.lexica.art/full_jpg/a76c4b20-d30a-47ed-bc12-afb13fc972e9",
-    ]
-    
-    // for the Question component, i want to add an image to the question, but i don't know how to do it. lets use the cardImages array to randomly select an image for each question.
-    function randomImage() {
-      return cardImages[Math.floor(Math.random() * cardImages.length)]
-    }
-    
+export default QuestionCard;

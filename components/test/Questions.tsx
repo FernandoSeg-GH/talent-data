@@ -19,12 +19,14 @@ export default function Questions_ENG({
   onRandomizeAnswers,
   onCalculatePoints,
   answers,
+  selectedLanguage,
 }: {
   questions: Question[];
   onAnswerChange: (questionId: number, value: string) => void;
   onRandomizeAnswers: () => void;
   onCalculatePoints: () => void;
   answers: Answer;
+  selectedLanguage: number;
 }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
@@ -72,6 +74,7 @@ export default function Questions_ENG({
         <Steps  current={currentQuestionIndex} total={questions.length} answers={answers} />
       </div>
       <QuestionCard_ENG
+        selectedLanguage={selectedLanguage}
         question={questions[currentQuestionIndex]}
         onAnswerChange={handleAnswerChange}
       />

@@ -5,9 +5,10 @@ type Question = {
     category: string;
     id: number;
     text: string;
+    selectedLanguage: number;
 };
 
-function QuestionCard({ question, onAnswerChange }: { question: Question, onAnswerChange: (value: string) => void }) {
+function QuestionCard({ question, onAnswerChange, selectedLanguage }: { question: Question, onAnswerChange: (value: string) => void, selectedLanguage: number }) {
   const [answer, setAnswer] = useState('');
 
   useEffect(() => {

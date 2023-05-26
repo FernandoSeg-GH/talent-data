@@ -41,6 +41,14 @@ export type FormValues = {
 
 export type FormChangeEvent = ChangeEvent<HTMLInputElement | HTMLSelectElement>;
 
+// export type Classifications = {
+//   [key: string]: "low" | "medium" | "high" | any
+// };
+
+export type ClassificationType = "low" | "medium" | "high";
+
 export type Classifications = {
-  [key: string]: "low" | "medium" | "high" | any
+  AE: ClassificationType;
+  D: ClassificationType;
+  RP: ClassificationType;
 };

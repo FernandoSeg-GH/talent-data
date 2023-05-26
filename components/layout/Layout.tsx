@@ -10,20 +10,17 @@ import { useSession } from 'next-auth/react';
 
 type Props = {
   children: React.ReactNode;
-  stateVariabel?: string;
+  // stateVariabel?: string;
   questions?: Question[];
   user?: any;
 };
 
 
-function Layout({ children, stateVariabel, questions, user }: Props) {
-  // const { data: session } = useSession();
-  const [isDarkMode, setIsDarkMode] = useState(false);
+function Layout({ children, questions, user }: Props) {
+  const { data: session } = useSession();
+  
 //   const [userProfile, setUserProfile] = useState<Session | null>(null)
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
 
 //   useEffect(() => {
 //     if (!session) {
@@ -48,9 +45,10 @@ function Layout({ children, stateVariabel, questions, user }: Props) {
 
   return (
     <>
-    <main className={`relative flex flex-col items-start jutify-start w-[90%] max-w-[480px] mx-auto ${isDarkMode ? "dark" : ""}`} >
+    <main className={`relative flex flex-col items-start jutify-start w-[90%] max-w-[480px] mx-auto`} >
+    {/* <main className={`relative flex flex-col items-start jutify-start w-[90%] max-w-[480px] mx-auto ${isDarkMode ? "dark" : ""}`} > */}
         {/* <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} session={session}/> */}
-        <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme}/>
+        <Navbar session={session} />
         {children}
         {/* <Footer /> */}
     </main>

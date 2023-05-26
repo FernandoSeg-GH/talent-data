@@ -2,10 +2,9 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import useAnalytics from "../lib/useAnalytics";
 import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
-// import { AuthProvider, useAuth } from '@/lib/auth';
 import Provider from "@/components/auth/Provider";
 import { SessionProvider, useSession } from "next-auth/react";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const isAuthenticated = false; // Update this with the real authentication status
@@ -13,18 +12,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   useAnalytics({ trackingId });
 
   return (
-    // <ProtectedRoute isAuthenticated={isAuthenticated}>
-    //   <AuthProvider>
-    //   </AuthProvider>
-    // </ProtectedRoute>
-      // <SessionProvider session={session}>
-      <>
+    <>
+      <SessionProvider>
         <Component {...pageProps} />
         <Analytics />
-        </>
-      // </SessionProvider>
-  ) 
-    
+      </SessionProvider>
+    </>
+  );
 }
 
 export default MyApp;

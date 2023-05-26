@@ -19,12 +19,14 @@ export default function Questions_ENG({
   onRandomizeAnswers,
   onCalculatePoints,
   answers,
+  selectedLanguage,
 }: {
   questions: Question[];
   onAnswerChange: (questionId: number, value: string) => void;
   onRandomizeAnswers: () => void;
   onCalculatePoints: () => void;
   answers: Answer;
+  selectedLanguage: number;
 }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
@@ -68,12 +70,13 @@ export default function Questions_ENG({
   return (
     <div className="shadow-lg p-8 rounded-lg text-gray-900 w-full mt-20 flex flex-col items-center justify-center ">
       <div className="text-gray-700 mb-6 w-full">
-        <p className='mb-1 text-sm font-semibold'>Your Progress:</p>
+        <p className='mb-1 text-sm font-semibold'>{selectedLanguage === 1 ? "Your Progress" : "Tu Progreso"}</p>
         <Steps  current={currentQuestionIndex} total={questions.length} answers={answers} />
       </div>
       <QuestionCard_ENG
         question={questions[currentQuestionIndex]}
         onAnswerChange={handleAnswerChange}
+        selectedLanguage={selectedLanguage} 
       />
       <div className="mt-6 flex items-center justify-between w-full">
         {!allQuestionsAnswered &&  <button
@@ -83,14 +86,14 @@ export default function Questions_ENG({
             currentQuestionIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
-          Prev
+        {selectedLanguage === 1 ? "Prev" : "Anterior"}
         </button>}
         {allQuestionsAnswered && currentQuestionIndex === questions.length - 1 && answers[questions[currentQuestionIndex].id] && (
           <button
             onClick={() => setIsComplete(true)}
             className="bg-green-500 text-white px-4 mx-auto py-1 rounded-lg cursor-default"
           >
-            Done! See the answers below
+            {selectedLanguage === 1 ? "Done! See the answers below" : "¡Hecho! Ver las respuestas a continuación"}
           </button>
         )}
         {!allQuestionsAnswered && currentQuestionIndex !== questions.length - 1 && (
@@ -101,7 +104,7 @@ export default function Questions_ENG({
               !answers[questions[currentQuestionIndex].id] ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >
-            Next
+            {selectedLanguage === 1 ? "Next" : "Siguiente"}
           </button>
         )}
       </div>

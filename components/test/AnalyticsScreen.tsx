@@ -7,8 +7,8 @@ type AnalyticsScreenProps = {
   lapapaAE: number;
   lapapaD: number;
   lapapaRP: number;
-  classifications: Classifications
-  
+  classifications: Classifications | any;
+  selectedLanguage: number;
 };
 
   
@@ -17,12 +17,16 @@ export function AnalyticsScreen({
   lapapaD,
   lapapaRP,
   classifications,
+  selectedLanguage,
 }: AnalyticsScreenProps) {
   const chartData = { AE: lapapaAE, D: lapapaD, RP: lapapaRP };
 
   return (
     <div className="w-full">
-      <BarChart data={chartData} classifications={classifications} />
+      <Screen
+        title={selectedLanguage === 1 ? "Analytics" : "Análisis"}
+        body={<BarChart data={chartData} classifications={classifications} selectedLanguage={selectedLanguage} />}
+      />
     </div>
   );
 }
